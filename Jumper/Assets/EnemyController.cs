@@ -18,14 +18,17 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (killed)
         {
             dusus -= 0.05f;
             transform.position += new Vector3(0, dusus*Time.deltaTime, 0);
         }
         
+        
     }
 
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         killed = true;
@@ -35,4 +38,5 @@ public class EnemyController : MonoBehaviour
     {
         
     }
+    
 }
