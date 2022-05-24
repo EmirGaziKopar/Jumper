@@ -15,12 +15,18 @@ public class JumperController : MonoBehaviour
 
     public float jump = 4f;
 
+    float trambJump; //trambolin için
+
+    float tmpJump;
+
     public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
         Can = 3;
+        tmpJump = jump;
+        trambJump = jump * 1.5f;
     }
 
     // Update is called once per frame
@@ -31,6 +37,7 @@ public class JumperController : MonoBehaviour
         //time2 += Time.deltaTime;
         Debug.Log(time2);
 
+        //dusmana carptiktan 2sn sonra kan effektinin aktifliði tekrar false olur
         if (time < 0.2f)
         {
 
@@ -70,17 +77,27 @@ public class JumperController : MonoBehaviour
             this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(Random.Range(-8,8), 0, 0);
         }
 
+        if(collision.gameObject.tag == "enemy1")
+        {
+            Can--;
+            BloodyEffect.SetActive(true);
+            time = 0;
+        }
+
         if(collision.gameObject.tag == "floor")
         {
             anim.SetTrigger("jump");
+            jump = tmpJump; // herhangi platforma basinca tekrar karakter normal atlama hizina sahip olmalý
         }
 
         if (collision.gameObject.tag == "trambolin")
         {
             Debug.Log("girdik mi ?");
             anim.SetTrigger("jump");
-            jump *= 1.5f;
+            jump = trambJump; //diger zemine basana kadar 2 katý daha yuksege zýplayacak.
         }
 
     }
+
+    
 }
