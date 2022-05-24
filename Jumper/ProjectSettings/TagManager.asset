@@ -10,6 +10,9 @@ TagManager:
   - enemy
   - Star
   - oluDusman
+  - ziplat
+  - enemy1
+  - enemy2
   layers:
   - Default
   - TransparentFX

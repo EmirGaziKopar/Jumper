@@ -60,11 +60,14 @@ public class JumperController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //enemy ziplatan enemy'dir
         if(collision.gameObject.tag == "enemy")
         {
+
             Can--;
             BloodyEffect.SetActive(true);
             time = 0;
+            this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(Random.Range(-8,8), 0, 0);
         }
 
         if(collision.gameObject.tag == "floor")

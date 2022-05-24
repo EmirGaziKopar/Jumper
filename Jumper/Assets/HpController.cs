@@ -13,6 +13,8 @@ public class HpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Can : " + JumperController.Can);
+
         if (JumperController.Can == 2)
         {
             transform.GetChild(0).gameObject.SetActive(false);
