@@ -84,7 +84,14 @@ public class JumperController : MonoBehaviour
             time = 0;
         }
 
-        if(collision.gameObject.tag == "floor")
+        if (collision.gameObject.tag == "enemy2")
+        {
+            Can--;
+            BloodyEffect.SetActive(true);
+            time = 0;
+        }
+
+        if (collision.gameObject.tag == "floor")
         {
             anim.SetTrigger("jump");
             jump = tmpJump; // herhangi platforma basinca tekrar karakter normal atlama hizina sahip olmalý
