@@ -65,8 +65,14 @@ public class JumperController : MonoBehaviour
         }
     }
 
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.tag == "floor")
+        {
+            this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0.1f * Time.deltaTime, 0);
+        }
+
         //enemy ziplatan enemy'dir
         if(collision.gameObject.tag == "enemy")
         {

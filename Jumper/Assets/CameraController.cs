@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    
-
+    float time;
+    public Transform characterPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +17,21 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         
+        if (CameraFollowerAndController.isMove)
+        {
+            if (time < 0.5)
+            {
+                time += Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, characterPosition.transform.position, Time.deltaTime * 50);
+                transform.position = new Vector3(0, transform.position.y, -10);
+            }
+            else
+            {
+                CameraFollowerAndController.isMove = false;
+                time = 0;
+
+            }
+        }
     }
 
     private void FixedUpdate()
