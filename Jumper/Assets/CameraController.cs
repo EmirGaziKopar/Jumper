@@ -17,12 +17,12 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+            //static
         if (CameraFollowerAndController.isMove && characterPosition != null)
         {
             if (time < 0.5)
             {
-                time += Time.deltaTime;
+                time += Time.deltaTime;                     //camera
                 transform.position = Vector3.MoveTowards(transform.position, characterPosition.transform.position, Time.deltaTime * 50);
                 transform.position = new Vector3(0, transform.position.y, -10);
             }
