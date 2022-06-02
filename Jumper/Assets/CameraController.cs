@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
 
     float time;
     public Transform characterPosition;
+    public GameObject restartTheGame;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         
-        if (CameraFollowerAndController.isMove)
+        if (CameraFollowerAndController.isMove && characterPosition != null)
         {
             if (time < 0.5)
             {
@@ -45,7 +46,7 @@ public class CameraController : MonoBehaviour
         {
             //show game over screen
             Time.timeScale = 0f;
-            
+            restartTheGame.SetActive(true);
             
         }
     }
