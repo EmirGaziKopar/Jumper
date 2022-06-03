@@ -8,6 +8,8 @@ public class JumperController : MonoBehaviour
     float time2;
     float time;
 
+    float gyrX;
+
     public GameObject BloodyEffect;
 
     public Animator anim;
@@ -32,6 +34,7 @@ public class JumperController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(1*Time.deltaTime, 0, 0);
         
         //time2 += Time.deltaTime;
@@ -53,16 +56,28 @@ public class JumperController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        gyrX = Input.acceleration.x;
+
         transform.position += new Vector3(0, jump * Time.deltaTime, 0);
 
-        if (Input.GetKey(KeyCode.A))
+        if (gyrX != 0)
         {
-            transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(gyrX*Time.deltaTime*10, 0, 0);
         }
-        if (Input.GetKey(KeyCode.D))
+        else
         {
-            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+            }
         }
+        
+        
+        
     }
 
     
