@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerController : MonoBehaviour
 {
+    public int scene;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +20,11 @@ public class SceneManagerController : MonoBehaviour
 
     public void SkipNewScene()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
     public void RestartGameForLevelOne()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
     public void QuitJumperGame()
     {
