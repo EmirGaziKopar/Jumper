@@ -10,13 +10,11 @@ public class MobileResulationForPc : MonoBehaviour
         if (sayac < 1)
         {
             sayac++;
-            Screen.SetResolution(Screen.currentResolution.width / 2, Screen.currentResolution.height / 2,true);
-            /*//Set screen size for Standalone
+            //Set screen size for Standalone
             #if UNITY_STANDALONE
                 Screen.SetResolution(564, 960, false);
                 Screen.fullScreen = false;
             #endif
-            */
         }
 
     }
