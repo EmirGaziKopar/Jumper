@@ -24,7 +24,7 @@ public class SceneManagerController : MonoBehaviour
     }
     public void RestartGameForLevelOne()
     {
-        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        SceneManager.LoadScene(scene, LoadSceneMode.Single); 
     }
     public void QuitJumperGame()
     {
